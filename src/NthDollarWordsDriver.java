@@ -8,7 +8,7 @@ public class NthDollarWordsDriver {
         String[] words = FileHelper.getWords();
         int count = 0;
         FileHelper.emptyFile(value);
-        for (String word : words) {
+        for (String word : words) {;
             NthDollarWord hdw = new NthDollarWord(word, value);
             if (hdw.isHundredDollarWord()) {
                 FileHelper.addWord(word, value);
