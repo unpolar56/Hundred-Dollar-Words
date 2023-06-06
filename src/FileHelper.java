@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileHelper {
-    public static final String OUTPUT_FILE = "_dollar_words.txt";
+    public static final String OUTPUT_FILE = "_dollar_words_in_";
     public static String[] getWords(String fileName) {
         File file = new File(fileName);
         Scanner fileReader;
@@ -26,18 +26,18 @@ public class FileHelper {
 
         return words;
     }
-    public static void emptyFile(int value) {
+    public static void emptyFile(int value, String fileName) {
         try {
-            new PrintWriter(value + OUTPUT_FILE).close();
+            new PrintWriter(value + OUTPUT_FILE + fileName).close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
-    public static void addWord(String word, int value) {
+    public static void addWord(String word, int value, String fileName) {
         word += "\n";
         OutputStream os;
         try {
-            os = new FileOutputStream(value + OUTPUT_FILE, true);
+            os = new FileOutputStream(value + OUTPUT_FILE + fileName, true);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

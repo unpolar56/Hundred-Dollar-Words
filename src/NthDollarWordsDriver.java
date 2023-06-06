@@ -9,11 +9,11 @@ public class NthDollarWordsDriver {
         int value = scanner.nextInt();
         String[] words = FileHelper.getWords(fileName);
         int count = 0;
-        FileHelper.emptyFile(value);
+        FileHelper.emptyFile(value, fileName);
         for (String word : words) {
             NthDollarWord hdw = new NthDollarWord(word, value);
             if (hdw.isHundredDollarWord()) {
-                FileHelper.addWord(word, value);
+                FileHelper.addWord(word, value, fileName);
                 count++;
             }
         }
