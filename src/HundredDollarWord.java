@@ -1,4 +1,5 @@
 public class HundredDollarWord {
+    private static final int WORD_VALUE = 305;
     private String originalWord;
     private String strippedWord;
     public HundredDollarWord(String originalWord) {
@@ -7,12 +8,12 @@ public class HundredDollarWord {
     }
 
     public boolean isHundredDollarWord() {
-        if (strippedWord.length() < 4 || 100 < strippedWord.length()) return false;
+        if (strippedWord.length() < WORD_VALUE / 26 + 1 || WORD_VALUE < strippedWord.length()) return false;
         int value = 0;
         for (char c : strippedWord.toCharArray()) {
             value += c - 96;
         }
-        return value == 100;
+        return value == WORD_VALUE;
     }
 
     private static String stripWord(String word) {
