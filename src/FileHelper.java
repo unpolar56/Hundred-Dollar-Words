@@ -7,10 +7,9 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileHelper {
-    private static final String WORDS_FILE = "words.txt";
     public static final String OUTPUT_FILE = "_dollar_words.txt";
-    public static String[] getWords() {
-        File file = new File(WORDS_FILE);
+    public static String[] getWords(String fileName) {
+        File file = new File(fileName);
         Scanner fileReader;
         try {
             fileReader = new Scanner(file);
@@ -19,7 +18,7 @@ public class FileHelper {
             throw new RuntimeException(e);
         }
 
-        String[] words = new String[getLines()];
+        String[] words = new String[getLines(fileName)];
 
         for (int i = 0; i < words.length - 1; i++) {
             words[i] = fileReader.nextLine();
@@ -50,8 +49,8 @@ public class FileHelper {
         }
     }
 
-    private static int getLines() {
-        File file = new File(WORDS_FILE);
+    private static int getLines(String fileName) {
+        File file = new File(fileName);
         Scanner fileReader;
         try {
             fileReader = new Scanner(file);

@@ -3,9 +3,11 @@ import java.util.Scanner;
 public class NthDollarWordsDriver {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("What file would you like to source words from? ");
+        String fileName = scanner.nextLine();
         System.out.print("What is your target word value? $");
         int value = scanner.nextInt();
-        String[] words = FileHelper.getWords();
+        String[] words = FileHelper.getWords(fileName);
         int count = 0;
         FileHelper.emptyFile(value);
         for (String word : words) {
