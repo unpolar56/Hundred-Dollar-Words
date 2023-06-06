@@ -1,8 +1,8 @@
-public class HundredDollarWord {
+public class NthDollarWord {
     private static final int WORD_VALUE = 305;
     private String originalWord;
     private String strippedWord;
-    public HundredDollarWord(String originalWord) {
+    public NthDollarWord(String originalWord) {
         this.originalWord = originalWord;
         strippedWord = stripWord(originalWord);
     }
