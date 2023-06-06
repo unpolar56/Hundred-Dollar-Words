@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class NthDollarWordsDriver {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("What is your target word value? ");
+        System.out.print("What is your target word value? $");
         int value = scanner.nextInt();
         String[] words = FileHelper.getWords();
         int count = 0;
