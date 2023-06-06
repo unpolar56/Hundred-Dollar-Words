@@ -1,17 +1,15 @@
 public class NthDollarWord {
-    private int value;
-    private String originalWord;
-    private String strippedWord;
-    public NthDollarWord(String originalWord, int value) {
+    private final int value;
+    private final String word;
+    public NthDollarWord(String word, int value) {
         this.value = value;
-        this.originalWord = originalWord;
-        strippedWord = stripWord(originalWord);
+        this.word = stripWord(word);
     }
 
     public boolean isHundredDollarWord() {
-        if (strippedWord.length() < value / 26 + 1 || value < strippedWord.length()) return false;
+        if (word.length() < value / 26 + 1 || value < word.length()) return false;
         int value = 0;
-        for (char c : strippedWord.toCharArray()) {
+        for (char c : word.toCharArray()) {
             value += c - 96;
         }
         return value == this.value;

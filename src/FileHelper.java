@@ -11,7 +11,7 @@ public class FileHelper {
     public static final String OUTPUT_FILE = "_dollar_words.txt";
     public static String[] getWords() {
         File file = new File(WORDS_FILE);
-        Scanner fileReader = null;
+        Scanner fileReader;
         try {
             fileReader = new Scanner(file);
         } catch (Exception e) {
@@ -19,7 +19,7 @@ public class FileHelper {
             throw new RuntimeException(e);
         }
 
-        String[] words = new String[getLines(WORDS_FILE)];
+        String[] words = new String[getLines()];
 
         for (int i = 0; i < words.length - 1; i++) {
             words[i] = fileReader.nextLine();
@@ -50,10 +50,8 @@ public class FileHelper {
         }
     }
 
-    private static int getLines(String fileName) {
-        return 466548;
-        /*
-        File file = new File(fileName);
+    private static int getLines() {
+        File file = new File(WORDS_FILE);
         Scanner fileReader;
         try {
             fileReader = new Scanner(file);
@@ -64,9 +62,9 @@ public class FileHelper {
 
         int lines = 0;
         while (fileReader.hasNextLine()) {
+            fileReader.nextLine();
             lines++;
         }
         return lines;
-        */
     }
 }
