@@ -1,11 +1,14 @@
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileHelper {
     private static final String WORDS_FILE = "words.txt";
-    private static final String OUTPUT_FILE = "hundred_dollar_words.txt";
+    public static final String OUTPUT_FILE = "_dollar_words.txt";
     public static String[] getWords() {
         File file = new File(WORDS_FILE);
         Scanner fileReader = null;
@@ -24,14 +27,25 @@ public class FileHelper {
 
         return words;
     }
-    public static void addWord(String word) {
+    public static void emptyFile(int value) {
         try {
-            FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(word);
-            bufferedWriter.newLine();
-        } catch (Exception e) {
-            e.printStackTrace();
+            new PrintWriter(value + OUTPUT_FILE).close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void addWord(String word, int value) {
+        word += "\n";
+        OutputStream os;
+        try {
+            os = new FileOutputStream(value + OUTPUT_FILE, true);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            os.write(word.getBytes(), 0, word.length());
+            os.close();
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

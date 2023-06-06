@@ -1,19 +1,20 @@
 public class NthDollarWord {
-    private static final int WORD_VALUE = 305;
+    private int value;
     private String originalWord;
     private String strippedWord;
-    public NthDollarWord(String originalWord) {
+    public NthDollarWord(String originalWord, int value) {
+        this.value = value;
         this.originalWord = originalWord;
         strippedWord = stripWord(originalWord);
     }
 
     public boolean isHundredDollarWord() {
-        if (strippedWord.length() < WORD_VALUE / 26 + 1 || WORD_VALUE < strippedWord.length()) return false;
+        if (strippedWord.length() < value / 26 + 1 || value < strippedWord.length()) return false;
         int value = 0;
         for (char c : strippedWord.toCharArray()) {
             value += c - 96;
         }
-        return value == WORD_VALUE;
+        return value == this.value;
     }
 
     private static String stripWord(String word) {
