@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class NthDollarWordsDriver {
+public class NthDollarWords {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What file would you like to source words from? ");
