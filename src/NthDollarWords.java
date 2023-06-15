@@ -17,6 +17,6 @@ public class NthDollarWords {
                 count++;
             }
         }
-        System.out.printf("%1$s words with a value of $%2$d were found, outputted to %2$d%3$s\n", count, value, FileHelper.OUTPUT_FILE);
+        System.out.printf("%1$s words with a value of $%2$d were found, outputted to %2$d%3$s\n", count, value, fileName);
     }
 }
